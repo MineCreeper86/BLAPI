@@ -5,10 +5,11 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import com.minecreeper.exceptions.RequestBlockedException;
+
 public class NetConnection {
-    public static String get(String address) {
+    public static String get(String address) throws Exception {
     	String result = "";
-    	try {
     	URL url = new URL(address);
     	HttpURLConnection con = (HttpURLConnection) url.openConnection();
     	con.setRequestMethod("GET");
@@ -23,13 +24,10 @@ public class NetConnection {
             }
             br.close();
             result = sb.toString();
-        }else{
-            System.out.println(con.getResponseCode());
+        }else if(con.getResponseCode() == 412){
+            throw new RequestBlockedException(address);
         }
         con.disconnect();
-    	}catch(Exception e) {
-    		
-    	}
 		return result;
     }
 }

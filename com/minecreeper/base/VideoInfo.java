@@ -20,5 +20,17 @@ public class VideoInfo {
 		public int zone_id;
 		@SerializedName("tname")
 		public String zone_name;
+		@SerializedName("copyright")
+		public int copyright;
+		@SerializedName("pic")
+		public String cover_url;
+		@SerializedName("title")
+		public String title;
+		@SerializedName("pubdate")
+		public long publish_time;
+		@SerializedName("desc")
+		public String description;
+		@SerializedName("duration")
+		public int duration;
 	}
 }
