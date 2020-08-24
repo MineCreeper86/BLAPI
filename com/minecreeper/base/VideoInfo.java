@@ -34,6 +34,10 @@ public class VideoInfo {
 		public int duration;
 		@SerializedName("rights")
 		public DataRights rights;
+		@SerializedName("owner")
+		public DataOwner owner;
+		@SerializedName("stat")
+		public DataStat stat;
 	}
 	public static class DataRights{
 		@SerializedName("download")
@@ -50,5 +54,17 @@ public class VideoInfo {
 		public int auto_play;
 		@SerializedName("is_cooperation")
 		public int cooperation;
+	}
+	public static class DataOwner{
+		@SerializedName("mid")
+		public int id;
+		@SerializedName("name")
+		public String name;
+		@SerializedName("face")
+		public String face_url;
+	}
+	public static class DataStat{
+		@SerializedName("view")
+		public int view;
 	}
 }

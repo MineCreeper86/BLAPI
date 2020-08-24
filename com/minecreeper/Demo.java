@@ -10,11 +10,11 @@ public class Demo {
 
 	private static void demo2() throws Exception {
 		Video v = new Video("BV1X4411R7G3");
-		System.out.println(v.requirePaying());
+		System.out.println(v.requirePaying()+", "+v.getParsedViewCount());
 	}
 
 	private static void demo1() throws Exception {
 		Video hop = new Video(170001);
-		System.out.println(hop.getBvid()+", "+hop.allowRepaint());
+		System.out.println(hop.getBvid()+", "+hop.allowRepaint()+", "+hop.getOwnerName());
 	}
 }

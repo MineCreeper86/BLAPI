@@ -24,9 +24,7 @@ public class NetConnection {
             }
             br.close();
             result = sb.toString();
-        }else if(con.getResponseCode() == 412){
-            throw new RequestBlockedException(address);
-        }
+        }else if(con.getResponseCode() == 412) throw new RequestBlockedException(address);
         con.disconnect();
 		return result;
     }
