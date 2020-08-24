@@ -66,5 +66,21 @@ public class VideoInfo {
 	public static class DataStat{
 		@SerializedName("view")
 		public int view;
+		@SerializedName("danmaku")
+		public int danmaku;
+		@SerializedName("reply")
+		public int comment;
+		@SerializedName("favorite")
+		public int favourite;
+		@SerializedName("coin")
+		public int coin;
+		@SerializedName("share")
+		public int share;
+		@SerializedName("now_rank")
+		public int rank;
+		@SerializedName("his_rank")
+		public int history_rank;
+		@SerializedName("like")
+		public int like;
 	}
 }

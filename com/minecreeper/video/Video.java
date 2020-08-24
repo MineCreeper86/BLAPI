@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import com.minecreeper.NetConnection;
 import com.minecreeper.base.VideoInfo;
 import com.minecreeper.exceptions.RequestBlockedException;
+import com.minecreeper.exceptions.VideoNotFoundException;
 
 public class Video {
 	private VideoInfo base = null;
@@ -22,6 +23,7 @@ public class Video {
 		Gson gson = new Gson();
 		this.base = gson.fromJson(NetConnection.get(this.lnk), VideoInfo.class);
 		if(this.base.code==-412) throw new RequestBlockedException(this.lnk);
+		if(this.base.code==-404) throw new VideoNotFoundException(this.lnk);
 	}
 	public void refresh() throws Exception {
 		this.construct();
@@ -112,5 +114,59 @@ public class Video {
 		int count = this.getViewCount();
 		if(count>=10000) return (float)((count+500)/1000)/10+"万次播放";
 		else return count+"次播放";
+	}
+	public int getDanmakuCount() {
+		return this.base.data.stat.danmaku;
+	}
+	public String getParsedDanmakuCount() {
+		int count = this.getDanmakuCount();
+		if(count>=10000) return (float)((count+500)/1000)/10+"万条弹幕";
+		else return count+"条弹幕";
+	}
+	public int getCommentCount() {
+		return this.base.data.stat.comment;
+	}
+	public String getParsedCommentCount() {
+		int count = this.getCommentCount();
+		if(count>=10000) return (float)((count+500)/1000)/10+"万条评论";
+		else return count+"条评论";
+	}
+	public int getFavouriteCount() {
+		return this.base.data.stat.favourite;
+	}
+	public String getParsedFavouriteCount() {
+		int count = this.getFavouriteCount();
+		if(count>=10000) return (float)((count+500)/1000)/10+"万次收藏";
+		else return count+"次收藏";
+	}
+	public int getCoinCount() {
+		return this.base.data.stat.coin;
+	}
+	public String getParsedCoinCount() {
+		int count = this.getCoinCount();
+		if(count>=10000) return (float)((count+500)/1000)/10+"万枚硬币";
+		else return count+"枚硬币";
+	}
+	public int getShareCount() {
+		return this.base.data.stat.share;
+	}
+	public String getParsedShareCount() {
+		int count = this.getShareCount();
+		if(count>=10000) return (float)((count+500)/1000)/10+"万次转发";
+		else return count+"次转发";
+	}
+	public int getLikeCount() {
+		return this.base.data.stat.like;
+	}
+	public String getParsedLikeCount() {
+		int count = this.getLikeCount();
+		if(count>=10000) return (float)((count+500)/1000)/10+"万人点赞";
+		else return count+"人点赞";
+	}
+	public int getCurrentRank() {
+		return this.base.data.stat.rank;
+	}
+	public int getHighestRank() {
+		return this.base.data.stat.history_rank;
 	}
 }
