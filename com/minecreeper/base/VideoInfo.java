@@ -32,5 +32,23 @@ public class VideoInfo {
 		public String description;
 		@SerializedName("duration")
 		public int duration;
+		@SerializedName("rights")
+		public DataRights rights;
+	}
+	public static class DataRights{
+		@SerializedName("download")
+		public int downloadable;
+		@SerializedName("movie")
+		public int movie;
+		@SerializedName("pay")
+		public int pay;
+		@SerializedName("hd5")
+		public int quality;
+		@SerializedName("no_repaint")
+		public int no_repaint;
+		@SerializedName("autoplay")
+		public int auto_play;
+		@SerializedName("is_cooperation")
+		public int cooperation;
 	}
 }

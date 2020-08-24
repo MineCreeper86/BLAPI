@@ -37,11 +37,11 @@ public class Video {
 	public int getPartAmount() {
 		return this.base.data.p_amount;
 	}
-	public boolean isSinglePart() {
+	public boolean isMutiplePart() {
 		if(this.base.data.p_amount == 1) {
-			return true;
+			return false;
 		}
-		return false;
+		return true;
 	}
 	public int getZoneID() {
 		return this.base.data.zone_id;
@@ -73,5 +73,47 @@ public class Video {
 	public String getParsedDuration() {
 		int dur = this.getDuration();
 		return dur/60 + ":" + dur%60;
+	}
+	public boolean isDownloadable() {
+		if(this.base.data.rights.downloadable==1) {
+			return true;
+		}
+		return false;
+	}
+	public boolean isMovie() {
+		if(this.base.data.rights.movie==1) {
+			return true;
+		}
+		return false;
+	}
+	public boolean requirePaying() {
+		if(this.base.data.rights.pay==1) {
+			return true;
+		}
+		return false;
+	}
+	public boolean isHD() {
+		if(this.base.data.rights.quality==1) {
+			return true;
+		}
+		return false;
+	}
+	public boolean allowRepaint() {
+		if(this.base.data.rights.no_repaint==0) {
+			return true;
+		}
+		return false;
+	}
+	public boolean isAutoPlay() {
+		if(this.base.data.rights.auto_play==1) {
+			return true;
+		}
+		return false;
+	}
+	public boolean isCooperation() {
+		if(this.base.data.rights.cooperation==1) {
+			return true;
+		}
+		return false;
 	}
 }
