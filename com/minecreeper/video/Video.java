@@ -111,57 +111,78 @@ public class Video {
 		return this.base.data.stat.view;
 	}
 	public String getParsedViewCount() {
+		return this.getParsedViewCount(10000);
+	}
+	public String getParsedViewCount(int bound) {
 		int count = this.getViewCount();
-		if(count>=10000) return (float)((count+500)/1000)/10+"万次播放";
-		else return count+"次播放";
+		if(count>=bound) return (float)((count+500)/1000)/10+"万次播放";
+		return count+"次播放";
 	}
 	public int getDanmakuCount() {
 		return this.base.data.stat.danmaku;
 	}
 	public String getParsedDanmakuCount() {
+		return this.getParsedViewCount(10000);
+	}
+	public String getParsedDanmakuCount(int bound) {
 		int count = this.getDanmakuCount();
-		if(count>=10000) return (float)((count+500)/1000)/10+"万条弹幕";
-		else return count+"条弹幕";
+		if(count>=bound) return (float)((count+500)/1000)/10+"万条弹幕";
+		return count+"条弹幕";
 	}
 	public int getCommentCount() {
 		return this.base.data.stat.comment;
 	}
 	public String getParsedCommentCount() {
+		return this.getParsedDanmakuCount(10000);
+	}
+	public String getParsedCommentCount(int bound) {
 		int count = this.getCommentCount();
-		if(count>=10000) return (float)((count+500)/1000)/10+"万条评论";
-		else return count+"条评论";
+		if(count>=bound) return (float)((count+500)/1000)/10+"万条评论";
+		return count+"条评论";
 	}
 	public int getFavouriteCount() {
 		return this.base.data.stat.favourite;
 	}
 	public String getParsedFavouriteCount() {
+		return this.getParsedFavouriteCount(10000);
+	}
+	public String getParsedFavouriteCount(int bound) {
 		int count = this.getFavouriteCount();
-		if(count>=10000) return (float)((count+500)/1000)/10+"万次收藏";
-		else return count+"次收藏";
+		if(count>=bound) return (float)((count+500)/1000)/10+"万次收藏";
+		return count+"次收藏";
 	}
 	public int getCoinCount() {
 		return this.base.data.stat.coin;
 	}
 	public String getParsedCoinCount() {
+		return this.getParsedCoinCount(10000);
+	}
+	public String getParsedCoinCount(int bound) {
 		int count = this.getCoinCount();
-		if(count>=10000) return (float)((count+500)/1000)/10+"万枚硬币";
-		else return count+"枚硬币";
+		if(count>=bound) return (float)((count+500)/1000)/10+"万枚硬币";
+		return count+"枚硬币";
 	}
 	public int getShareCount() {
 		return this.base.data.stat.share;
 	}
 	public String getParsedShareCount() {
+		return this.getParsedShareCount(10000);
+	}
+	public String getParsedShareCount(int bound) {
 		int count = this.getShareCount();
-		if(count>=10000) return (float)((count+500)/1000)/10+"万次转发";
-		else return count+"次转发";
+		if(count>=bound) return (float)((count+500)/1000)/10+"万次转发";
+		return count+"次转发";
 	}
 	public int getLikeCount() {
 		return this.base.data.stat.like;
 	}
 	public String getParsedLikeCount() {
+		return this.getParsedLikeCount(10000);
+	}
+	public String getParsedLikeCount(int bound) {
 		int count = this.getLikeCount();
-		if(count>=10000) return (float)((count+500)/1000)/10+"万人点赞";
-		else return count+"人点赞";
+		if(count>=bound) return (float)((count+500)/1000)/10+"万人点赞";
+		return count+"人点赞";
 	}
 	public int getCurrentRank() {
 		return this.base.data.stat.rank;
