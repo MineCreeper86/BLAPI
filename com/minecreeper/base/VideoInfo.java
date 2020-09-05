@@ -38,6 +38,10 @@ public class VideoInfo {
 		public DataOwner owner;
 		@SerializedName("stat")
 		public DataStat stat;
+		@SerializedName("dynamic")
+		public String dynamic;
+		@SerializedName("cid")
+		public int pageid;
 	}
 	public static class DataRights{
 		@SerializedName("download")

@@ -8,7 +8,10 @@ import java.net.URL;
 import com.minecreeper.exceptions.RequestBlockedException;
 
 public class NetConnection {
+	public static long lastrequest = 0;
     public static String get(String address) throws Exception {
+    	if(System.currentTimeMillis()<lastrequest+Configs.delay) Thread.sleep(lastrequest+Configs.delay-System.currentTimeMillis());
+    	lastrequest = System.currentTimeMillis();
     	String result = "";
     	URL url = new URL(address);
     	HttpURLConnection con = (HttpURLConnection) url.openConnection();

@@ -122,7 +122,7 @@ public class Video {
 		return this.base.data.stat.danmaku;
 	}
 	public String getParsedDanmakuCount() {
-		return this.getParsedViewCount(10000);
+		return this.getParsedDanmakuCount(10000);
 	}
 	public String getParsedDanmakuCount(int bound) {
 		int count = this.getDanmakuCount();
@@ -133,7 +133,7 @@ public class Video {
 		return this.base.data.stat.comment;
 	}
 	public String getParsedCommentCount() {
-		return this.getParsedDanmakuCount(10000);
+		return this.getParsedCommentCount(10000);
 	}
 	public String getParsedCommentCount(int bound) {
 		int count = this.getCommentCount();
@@ -189,5 +189,11 @@ public class Video {
 	}
 	public int getHighestRank() {
 		return this.base.data.stat.history_rank;
+	}
+	public String getDynamicContent() {
+		return this.base.data.dynamic;
+	}
+	public int getPageID() {
+		return this.base.data.pageid;
 	}
 }
