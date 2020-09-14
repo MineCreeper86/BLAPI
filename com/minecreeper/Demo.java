@@ -6,12 +6,11 @@ public class Demo {
 	public static void main(String[] args) throws Exception {
         demo1();
         demo2();
-        //demo3();
+        demo3();
 	}
 
-	@SuppressWarnings("unused")
 	private static void demo3() throws Exception {
-		Video v = new Video(1);
+		NetConnection.saveConnectDetails("D:/logs/");
 	}
 
 	private static void demo2() throws Exception {

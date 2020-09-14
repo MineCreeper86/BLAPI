@@ -11,17 +11,20 @@ import com.minecreeper.exceptions.VideoNotFoundException;
 public class Video {
 	private VideoInfo base = null;
 	private String lnk = "";
+	private String referer = "";
 	public Video(int aid) throws Exception {
 		this.lnk = "https://api.bilibili.com/x/web-interface/view?aid="+aid;
+		this.referer = "https://www.bilibili.com/video/av"+aid;
 		this.construct();
 	}
 	public Video(String bvid) throws Exception {
 		this.lnk = "https://api.bilibili.com/x/web-interface/view?bvid="+bvid;
+		this.referer = "https://www.bilibili.com/video/"+bvid;
 		this.construct();
 	}
 	private void construct() throws Exception {
 		Gson gson = new Gson();
-		this.base = gson.fromJson(NetConnection.get(this.lnk), VideoInfo.class);
+		this.base = gson.fromJson(NetConnection.get(this.lnk,this.referer), VideoInfo.class);
 		if(this.base.code==-412) throw new RequestBlockedException(this.lnk);
 		if(this.base.code==-404) throw new VideoNotFoundException(this.lnk);
 	}
